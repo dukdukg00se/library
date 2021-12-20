@@ -1,0 +1,29 @@
+* { /* all elements */
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%; /* root height equal to 100% of viewport*/
+}
+
+body {
+  min-height: 100%; /* body height grows to fit contents, can overflow root height */
+  
+  border: solid 2px green;
+}
+
+main {
+  border: solid 2px red;
+}
+
+#library {
+  display: flex;
+  border: solid 2px purple;
+  gap: 20px;
+}
+
+.book {
+  /* height: 100px;
+  width: 100px; */
+  border: solid 2px blue;
+}
