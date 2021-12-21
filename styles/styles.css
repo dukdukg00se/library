@@ -43,3 +43,7 @@ main {
 .bookInfo {
   display: block;
 }
+
+.close-button {
+  float: right;
+}
