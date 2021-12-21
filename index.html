@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library</title>
-  <!-- <link href="styles/reset.css" rel="stylesheet"> -->
+  <link href="styles/reset.css" rel="stylesheet">
   <link href="styles/styles.css" rel="stylesheet">
   <script src="scripts/main.js" defer></script>
 </head>
@@ -20,6 +20,21 @@
     <div id="library"></div>
 
   </main>
+  
+  <footer>By dukdukg00se</footer>
+
+  <div id="modal">
+    <h2>Add New Book</h2>
+    <button type="button" class="close-button" aria-label="close modal">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <input type="text" class="bookInfo" id="inputTitle" placeholder="Title">
+    <input type="text" class="bookInfo" id="inputAuthor" placeholder="Author">
+    <input type="text" class="bookInfo" id="inputPages" placeholder="Pages">
+    <label for="inputRead" class="bookInfo">Have you read it?</label>
+    <input type="checkbox" id="inputRead">
+    <button type="submit">Submit</button>
+  </div>
   
   
 </body>

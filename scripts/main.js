@@ -25,20 +25,23 @@ function displayBooks(arr) {
   for (let i = 0; i < arr.length; i++) {
     let book = document.createElement('div');
     book.classList.add('book');
+
     let bookTitle = document.createElement('h2');
     bookTitle.classList.add('bookTitle');
     // bookTitle.textContent = arr[i].title;
     // book.appendChild(bookTitle);
     bookTitle.append(arr[i].title);
-    book.append(bookTitle);
+
+
     let bookAuthor = document.createElement('p');
     bookAuthor.classList.add('bookAuthor');
     bookAuthor.append(arr[i].author);
-    book.append(bookAuthor);
+  
     let bookPages = document.createElement('p');
     bookPages.classList.add('bookPages');
     bookPages.append(arr[i].pages);
-    book.append(bookPages);
+
+    book.append(bookTitle, bookAuthor, bookPages);
 
     library.append(book);
   }
