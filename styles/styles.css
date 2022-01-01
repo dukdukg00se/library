@@ -61,8 +61,8 @@ main {
   font-weight: bold;
   float: right;
 }
-#close:hover,
-#close:focus {
+.close:hover,
+.close:focus {
   color: black;
   cursor: pointer;
 }

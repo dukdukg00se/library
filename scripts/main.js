@@ -37,6 +37,7 @@ function displayBooks() {
 
     let button = document.createElement('button');
     button.classList.add('close');
+    button.type = 'button';
     // Display special x symbol using hex code
     button.textContent = '\xD7'; 
 
