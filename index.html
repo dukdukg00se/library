@@ -16,26 +16,35 @@
   </header>
 
   <main>
-    <button>Add New Book</button>
-    <div id="library"></div>
+    <button id="open-modal">Add New Book</button>
+    <div id="outer-library"></div>
 
   </main>
   
   <footer>By dukdukg00se</footer>
 
   <div id="modal">
-    <button type="button" class="close-button" aria-label="close modal">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    <h2>Add New Book</h2>
-    <input type="text" class="bookInfo" id="inputTitle" placeholder="Title">
-    <input type="text" class="bookInfo" id="inputAuthor" placeholder="Author">
-    <input type="text" class="bookInfo" id="inputPages" placeholder="Pages">
-    <label for="inputRead" class="bookInfo">Have you read it?</label>
-    <input type="checkbox" id="inputRead">
-    <button type="submit">Submit</button>
+
+    <form id="modal-content" action="#">
+      <button type="button" class="close" aria-label="close modal">&times;</button>
+      <h2>Add New Book</h2>
+
+      <input type="text" class="book-info" id="title" placeholder="Title">
+      <input type="text" class="book-info" id="author" placeholder="Author">
+      <input type="text" class="book-info" id="pages" placeholder="Pages">
+
+      <label for="read">Have you read it?</label>
+      <input type="checkbox" id="read">
+
+      <button type="submit" id="submit">Submit</button>
+
+      <button type="button" id="test">Test</button>
+    </form>
+
   </div>
   
   
 </body>
 </html>
+
+

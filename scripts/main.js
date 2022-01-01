@@ -10,49 +10,82 @@ function Book(title, author, pages, read) {
   };
 }
 
-// function addBookToLibrary(bookObj) {
-//   myLibrary.push(bookObj);
-// }
-
-function addBookToLibrary() {
-  let myBook = new Book('IT', 'King', 500, true);
+function store(){
+  let title = document.getElementById("title");
+  let author = document.getElementById("author");
+  let pages = document.getElementById("pages");
+  let read = document.getElementById("read");
+  let myBook = new Book(title.value, author.value, pages.value, read.checked);
   myLibrary.push(myBook);
+
+  // localStorage.setItem('libraryArray', myLibrary);
+  // localStorage.setItem("title", title.value);
+  // localStorage.setItem("author", author.value);
+  // localStorage.setItem("pages", pages.value);
+  // localStorage.setItem("read", read.checked);
 }
 
+function displayBooks() {
+  let innerLibrary = document.createElement('div');
+  innerLibrary.classList.add('inner-library');
+  let outerLibrary = document.querySelector('#outer-library');
 
-function displayBooks(arr) {
-  const library = document.querySelector('#library');
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < myLibrary.length; i++) {
     let book = document.createElement('div');
+    book.id = 'book' + i;
     book.classList.add('book');
 
-    let bookTitle = document.createElement('h2');
-    bookTitle.classList.add('bookTitle');
-    // bookTitle.textContent = arr[i].title;
-    // book.appendChild(bookTitle);
-    bookTitle.append(arr[i].title);
+    let button = document.createElement('button');
+    button.classList.add('close');
+    // Display special x symbol using hex code
+    button.textContent = '\xD7'; 
 
+    let bookTitle = document.createElement('h2');
+    bookTitle.classList.add('book-title');
+    bookTitle.textContent = myLibrary[i].title;
 
     let bookAuthor = document.createElement('p');
-    bookAuthor.classList.add('bookAuthor');
-    bookAuthor.append(arr[i].author);
-  
+    bookAuthor.classList.add('book-author');
+    bookAuthor.textContent = myLibrary[i].author;
+
     let bookPages = document.createElement('p');
-    bookPages.classList.add('bookPages');
-    bookPages.append(arr[i].pages);
+    bookPages.classList.add('book-pages');
+    bookPages.textContent = myLibrary[i].pages;
 
-    book.append(bookTitle, bookAuthor, bookPages);
+    let read = document.createElement('p');
+    read.classList.add('read');
+    read.textContent = myLibrary[i].read;
 
-    library.append(book);
+    book.append(button, bookTitle, bookAuthor, bookPages, read);
+    innerLibrary.appendChild(book);
   }
+
+  if (!!outerLibrary.firstElementChild) {
+    let innerLibrary = document.querySelector('.inner-library');
+    outerLibrary.removeChild(innerLibrary);
+  }
+
+  outerLibrary.appendChild(innerLibrary);
 }
 
-let black = new Book('black', 'x', 500, true);
-addBookToLibrary(black);
+let modal = document.getElementById('modal');
+let openModal = document.getElementById('open-modal');
+openModal.addEventListener('click', () => {
+  modal.style.display = 'block';
+})
 
-// addBookToLibrary(new Book('Black', 'X', 500, true));
+let submit = document.getElementById("submit");
+submit.addEventListener('click', () => {
 
-displayBooks(myLibrary);
+  store();
+  displayBooks();
+  modal.style.display = 'none';
+});
+
+let check = document.getElementById("test");
+check.addEventListener('click', () => {
+  console.log(localStorage);
+})
 
 
 
