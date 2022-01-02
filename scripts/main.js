@@ -65,7 +65,6 @@ function displayBooks() {
     let innerLibrary = document.querySelector('.inner-library');
     outerLibrary.removeChild(innerLibrary);
   }
-
   outerLibrary.appendChild(innerLibrary);
 }
 
@@ -73,7 +72,7 @@ let modal = document.getElementById('modal');
 let openModal = document.getElementById('open-modal');
 openModal.addEventListener('click', () => {
   modal.style.display = 'block';
-})
+});
 
 let submit = document.getElementById("submit");
 submit.addEventListener('click', () => {
@@ -83,11 +82,42 @@ submit.addEventListener('click', () => {
   let form = document.getElementById('modal-content');
   form.reset();
 
+
   modal.style.display = 'none';
 
-
+  // CURRENTLY WORKING ON THIS FUNCTION BELOW
+  let closeWin = document.querySelectorAll('.close');
+  closeWin.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    console.log(btn.className);
+    });
+  });
 });
 
+// CURRENTLY WORKING ON THIS FUNCTION BELOW
+let closeWin = document.querySelectorAll('.close');
+closeWin.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    console.log('testing');
+  });
+});
+
+
+
+// let closeWin = document.querySelector('.close');
+// closeWin.addEventListener('click', () => {
+//   console.log('test');
+// })
+
+
+// const buttons = document.querySelectorAll('button');
+// buttons.forEach((button) => {
+//   button.addEventListener('click', () => {
+//     console.log(button.id);
+//   });
+// });
+
+// window.addEventListener('click', test());
 
 
 
