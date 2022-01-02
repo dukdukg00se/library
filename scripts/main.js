@@ -88,10 +88,6 @@ submit.addEventListener('click', () => {
 
 });
 
-let check = document.getElementById("test");
-check.addEventListener('click', () => {
-  console.log(localStorage);
-})
 
 
 
