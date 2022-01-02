@@ -35,11 +35,11 @@ function displayBooks() {
     book.id = 'book' + i;
     book.classList.add('book');
 
-    let button = document.createElement('button');
-    button.classList.add('close');
-    button.type = 'button';
+    let closeButton = document.createElement('button');
+    closeButton.classList.add('close');
+    closeButton.type = 'button';
     // Display special x symbol using hex code
-    button.textContent = '\xD7'; 
+    closeButton.textContent = '\xD7'; 
 
     let bookTitle = document.createElement('h2');
     bookTitle.classList.add('book-title');
@@ -57,7 +57,7 @@ function displayBooks() {
     read.classList.add('read');
     read.textContent = myLibrary[i].read;
 
-    book.append(button, bookTitle, bookAuthor, bookPages, read);
+    book.append(closeButton, bookTitle, bookAuthor, bookPages, read);
     innerLibrary.appendChild(book);
   }
 
@@ -77,10 +77,15 @@ openModal.addEventListener('click', () => {
 
 let submit = document.getElementById("submit");
 submit.addEventListener('click', () => {
-
   store();
   displayBooks();
+  
+  let form = document.getElementById('modal-content');
+  form.reset();
+
   modal.style.display = 'none';
+
+
 });
 
 let check = document.getElementById("test");
