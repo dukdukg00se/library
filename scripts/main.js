@@ -20,36 +20,26 @@ function store(){
   let read = document.getElementById("read");
 
   let myBook = new Book(title.value, author.value, pages.value, read.checked);
-
   myLibrary.push(myBook);
-  // localStorage.setItem('libraryArray', myLibrary);
-  // localStorage.setItem("title", title.value);
-  // localStorage.setItem("author", author.value);
-  // localStorage.setItem("pages", pages.value);
-  // localStorage.setItem("read", read.checked);
 }
 
 function displayBooks() {
-  let innerLibrary = document.createElement('div');
-  innerLibrary.classList.add('inner-library');
-  let outerLibrary = document.querySelector('#outer-library');
+  let librarySubcontainer = document.createElement('div');
+  librarySubcontainer.classList.add('library-subcontainer');
+  let library = document.getElementById('library');
 
   for (let i = 0; i < myLibrary.length; i++) {
     let book = document.createElement('div');
     book.id = 'book' + i;
     book.classList.add('book');
-    book.setAttribute('data-nmbr', i);
 
     let closeButton = document.createElement('button');
     closeButton.classList.add('close');
     closeButton.type = 'button';
+    closeButton.id = 'close-btn' + i;
+    closeButton.setAttribute('data-value', myLibrary[i].title);
 
-    closeButton.id = myLibrary[i].title
-
-    // closeButton.id = 'close' + i;
-    closeButton.setAttribute('data-nmbr', i);
-    // Display special x symbol using hex code
-    closeButton.textContent = '\xD7'; 
+    closeButton.textContent = '\xD7'; // Display special x symbol using hex code
 
     let bookTitle = document.createElement('h2');
     bookTitle.classList.add('book-title');
@@ -68,14 +58,14 @@ function displayBooks() {
     read.textContent = myLibrary[i].read;
 
     book.append(closeButton, bookTitle, bookAuthor, bookPages, read);
-    innerLibrary.appendChild(book);
+    librarySubcontainer.appendChild(book);
   }
 
-  if (!!outerLibrary.firstElementChild) {
-    let innerLibrary = document.querySelector('.inner-library');
-    outerLibrary.removeChild(innerLibrary);
+  if (!!library.firstElementChild) {
+    let librarySubcontainer = document.querySelector('.library-subcontainer');
+    library.removeChild(librarySubcontainer);
   }
-  outerLibrary.appendChild(innerLibrary);
+  library.appendChild(librarySubcontainer);
 
   close();
   // let closeWin = document.querySelectorAll('.close');
@@ -94,7 +84,6 @@ function displayBooks() {
     
   //   });
   // });
-
 }
 
 let submit = document.getElementById("submit");
@@ -106,7 +95,6 @@ submit.addEventListener('click', () => {
   form.reset();
   modal.style.display = 'none';
 
-  // CURRENTLY WORKING ON THIS FUNCTION BELOW
   // let closeWin = document.querySelectorAll('.close');
   // closeWin.forEach((btn) => {
   // btn.addEventListener('click', () => {
@@ -115,28 +103,11 @@ submit.addEventListener('click', () => {
   // });
 });
 
-// CURRENTLY WORKING ON THIS FUNCTION BELOW
-// let closeWin = document.querySelectorAll('.close');
-// closeWin.forEach((btn) => {
-//   btn.addEventListener('click', (e) => {
-//     // console.log(e);
-
-//     if (e.target.id === 'close-modal') {
-//       console.log(e);
-//       let form = document.getElementById('modal-content');
-//       form.reset();
-//       modal.style.display = 'none';
-//     } else {
-
-//     }
-//   });
-// });
-
 function close() {
   let closeBtns = document.querySelectorAll('.close');
   closeBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      // console.log(e.target.id);
+
       if (e.target.id === 'close-modal') {
         let form = document.getElementById('modal-content');
         form.reset();
@@ -147,58 +118,22 @@ function close() {
         let grandParent = parent.parentNode;
         grandParent.removeChild(parent);
 
-        console.log(child.getAttribute('id'));
-        // delete myLibrary[parent.getAttribute('data-nmbr')];
-
-
-
-        console.log(myLibrary);
-
         for (let i = 0; i < myLibrary.length; i++) {
-          if (myLibrary[i].title === child.getAttribute('id')) {
+          console.log(myLibrary[i].title, child.getAttribute('data-value'));
+          if (myLibrary[i].title === child.getAttribute('data-value')) {
             delete myLibrary[i];
             myLibrary = myLibrary.filter((obj) => obj !== undefined);
           }
         }
-
-        // myLibrary.splice(parent.getAttribute('data-nmbr'), 1);
-        // console.log(parent.getAttribute('data-nmbr'));
       }
-      // console.log(myLibrary, myLibrary.length);  
-
     });
   });
 }
 
 close();
 
-
-
-
-
-
-
 let modal = document.getElementById('modal');
 let openModal = document.getElementById('open-modal');
 openModal.addEventListener('click', () => {
   modal.style.display = 'block';
 });
-
-// let closeWin = document.querySelector('.close');
-// closeWin.addEventListener('click', () => {
-//   console.log('test');
-// })
-
-
-// const buttons = document.querySelectorAll('button');
-// buttons.forEach((button) => {
-//   button.addEventListener('click', () => {
-//     console.log(button.id);
-//   });
-// });
-
-// window.addEventListener('click', test());
-
-
-
-

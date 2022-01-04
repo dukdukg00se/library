@@ -15,7 +15,7 @@ main {
   border: solid 2px red;
 }
 
-#outer-library {
+#library {
   display: flex;
   border: solid 2px purple;
   gap: 20px;
