@@ -41,7 +41,7 @@ main {
   border: solid 2px black;
 }
 
-#modal-content {
+#modal-form {
   background-color: #fefefe;
   margin: 20% auto; 
   padding: 20px;
@@ -53,7 +53,7 @@ main {
   display: block;
 }
 
-.close {
+.close-btn {
   background: none;
   border: none;
   color: #aaa;
@@ -61,12 +61,12 @@ main {
   font-weight: bold;
   float: right;
 }
-.close:hover,
-.close:focus {
+.close-btn:hover,
+.close-btn:focus {
   color: black;
   cursor: pointer;
 }
 
-#submit {
+#submit-btn {
   display: block;
 }
