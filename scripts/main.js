@@ -55,30 +55,18 @@ function displayBooks() {
     let bookPages = document.createElement('p');
     bookPages.classList.add('book-pages');
     bookPages.textContent = myLibrary[i].pages + ' pages';
-
-
-
-    // Create p element to display if read 
-    // let read = document.createElement('p');
-    // read.classList.add('read');
-    // read.textContent = myLibrary[i].read;
-
+    // Create button to display/change read status
     let readBtn = document.createElement('button');
     readBtn.classList.add('read-btn');
     readBtn.type = 'button';
     readBtn.id = 'read-btn-' + i;
     readBtn.setAttribute('data-value', myLibrary[i].title);
-
     if (myLibrary[i].read) {
       readBtn.textContent = 'Read';
     } else {
       readBtn.textContent = "Not Read";
-    }
-    // readBtn.textContent = myLibrary[i].read;
-
-    
-
-    // Add info to book card
+    }    
+    // Add elements to book card
     book.append(closeBtn, bookTitle, bookAuthor, bookPages, readBtn);
     // Append book card to subcontainer
     librarySubcontainer.appendChild(book);
@@ -92,13 +80,13 @@ function displayBooks() {
   library.appendChild(librarySubcontainer);
 }
 
+// Change read status of book card
 function changeReadStatus() {
   let readBtn = document.querySelectorAll('.read-btn');
   readBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
       // console.log(e.target.textContent);
       console.log(btn.id);
-
       // Changes textContent but reverts back when adding a new card
       // need to update read status in myLibrary array
       // if (e.target.textContent === 'Not Read') {
@@ -108,10 +96,8 @@ function changeReadStatus() {
       // if (btn.textContent === 'Not Read') {
       //   btn.textContent = 'Read';
       // } 
-
+      
       let child = document.getElementById(btn.id);
-      // console.log(child.textContent);
-
       for (let i = 0; i < myLibrary.length; i++) {
         if (myLibrary[i].title === child.getAttribute('data-value')) {
           if (child.textContent === 'Not Read') {
@@ -123,8 +109,6 @@ function changeReadStatus() {
           }
         }
       }
-
-
     });
   });
 }
@@ -133,11 +117,10 @@ function changeReadStatus() {
 let submit = document.getElementById("submit-btn");
 submit.addEventListener('click', () => {
   // After clicking submit button:
-  store(); // Create new book and add to myLibrary
-  displayBooks(); // Display books in myLibrary
-  close(); // Listen for close button click
-
-  changeReadStatus();
+  store(); 
+  displayBooks(); 
+  close(); 
+  changeReadStatus(); 
 
   // Reset form and remove 
   let form = document.getElementById('modal-form');

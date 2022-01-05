@@ -7,19 +7,36 @@ html {
 }
 
 body {
+  background-image: linear-gradient(rgba(0, 0, 0, 1), 
+  rgba(0, 0, 0, 0)), 
+  url(../images/books-morales-unsplash.jpg); /* gradient top to bottom */
+  background-color: black; /* if bkgrnd img doesn't load set bkgrnd color black */
   min-height: 100%; /* body height grows to fit contents, can overflow root height */
-  border: solid 2px green;
+  color: white;
 }
 
+
+
+
+
+
+
 main {
+
   border: solid 2px red;
 }
 
 #library {
+  background-color: black;
   display: flex;
   border: solid 2px purple;
   gap: 20px;
   min-height: 200px;
+}
+
+.library-subcontainer {
+  display: flex;
+  gap: 20px;
 }
 
 .book {
@@ -63,7 +80,7 @@ main {
 }
 .close-btn:hover,
 .close-btn:focus {
-  color: black;
+  color: rgb(255, 0, 0);
   cursor: pointer;
 }
 
