@@ -112,11 +112,11 @@ function close() {
     });
   });
 }
+close();
 
 // Open modal to add new book
 let openModal = document.getElementById('add-book');
 openModal.addEventListener('click', () => {
-  close();
   let modal = document.getElementById('modal');
   modal.style.display = 'block';
 
