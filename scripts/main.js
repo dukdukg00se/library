@@ -54,13 +54,32 @@ function displayBooks() {
     // Create p element with book page length
     let bookPages = document.createElement('p');
     bookPages.classList.add('book-pages');
-    bookPages.textContent = myLibrary[i].pages;
+    bookPages.textContent = myLibrary[i].pages + ' pages';
+
+
+
     // Create p element to display if read 
-    let read = document.createElement('p');
-    read.classList.add('read');
-    read.textContent = myLibrary[i].read;
+    // let read = document.createElement('p');
+    // read.classList.add('read');
+    // read.textContent = myLibrary[i].read;
+
+    let readBtn = document.createElement('button');
+    readBtn.classList.add('read-btn');
+    readBtn.type = 'button';
+    readBtn.id = 'read-btn-' + i;
+    readBtn.setAttribute('data-value', myLibrary[i].title);
+
+    if (myLibrary[i].read) {
+      readBtn.textContent = 'Read';
+    } else {
+      readBtn.textContent = "Not Read";
+    }
+    // readBtn.textContent = myLibrary[i].read;
+
+    
+
     // Add info to book card
-    book.append(closeBtn, bookTitle, bookAuthor, bookPages, read);
+    book.append(closeBtn, bookTitle, bookAuthor, bookPages, readBtn);
     // Append book card to subcontainer
     librarySubcontainer.appendChild(book);
   }
@@ -73,6 +92,43 @@ function displayBooks() {
   library.appendChild(librarySubcontainer);
 }
 
+function changeReadStatus() {
+  let readBtn = document.querySelectorAll('.read-btn');
+  readBtn.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      // console.log(e.target.textContent);
+      console.log(btn.id);
+
+      // Changes textContent but reverts back when adding a new card
+      // need to update read status in myLibrary array
+      // if (e.target.textContent === 'Not Read') {
+      //   e.target.textContent = 'Read';
+      // }
+      // Also can use btn.textContent
+      // if (btn.textContent === 'Not Read') {
+      //   btn.textContent = 'Read';
+      // } 
+
+      let child = document.getElementById(btn.id);
+      // console.log(child.textContent);
+
+      for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].title === child.getAttribute('data-value')) {
+          if (child.textContent === 'Not Read') {
+            myLibrary[i].read = true;
+            child.textContent = 'Read';
+          } else {
+            myLibrary[i].read = false;
+            child.textContent = 'Not Read';
+          }
+        }
+      }
+
+
+    });
+  });
+}
+
 
 let submit = document.getElementById("submit-btn");
 submit.addEventListener('click', () => {
@@ -80,6 +136,8 @@ submit.addEventListener('click', () => {
   store(); // Create new book and add to myLibrary
   displayBooks(); // Display books in myLibrary
   close(); // Listen for close button click
+
+  changeReadStatus();
 
   // Reset form and remove 
   let form = document.getElementById('modal-form');
@@ -119,5 +177,4 @@ let openModal = document.getElementById('add-book');
 openModal.addEventListener('click', () => {
   let modal = document.getElementById('modal');
   modal.style.display = 'block';
-
 });
