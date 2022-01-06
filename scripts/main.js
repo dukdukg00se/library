@@ -7,9 +7,9 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.info = function() {
-    return `${title} by ${author}, ${pages}, ${read}`;
-  };
+  // this.info = function() {
+  //   return `${title} by ${author}, ${pages}, ${read}`;
+  // };
 }
 
 // Create new book from form input and store in myLibrary
@@ -25,7 +25,7 @@ function store(){
 // Iterate through myLibrary array and display each book
 function displayBooks() {
   // Create a subcontainer to append books to
-  // After user deletes a book the subcontainer is removed, book
+  // After user deletes a book, subcontainer removed, book
   // deleted from array and array displayed again
   let librarySubcontainer = document.createElement('div');
   librarySubcontainer.classList.add('library-subcontainer');
@@ -113,19 +113,6 @@ function changeReadStatus() {
   });
 }
 
-
-let submit = document.getElementById("submit-btn");
-submit.addEventListener('click', () => {
-  store(); 
-  displayBooks(); 
-  close(); 
-  changeReadStatus(); 
-  // Reset form and remove 
-  let form = document.getElementById('modal-form');
-  form.reset();
-  modal.style.display = 'none';
-});
-
 // Remove modal or book cards
 function close() {
   let closeBtns = document.querySelectorAll('.close-btn');
@@ -153,6 +140,28 @@ function close() {
   });
 }
 close();
+
+
+let submit = document.getElementById("submit-btn");
+submit.addEventListener('click', () => {
+  let title = document.getElementById('title');
+  console.log(title);
+  console.log(!title.value);
+
+  console.log('test');
+  store(); 
+  displayBooks(); 
+  changeReadStatus(); 
+  close(); 
+
+  // Reset form and remove 
+  
+
+
+  let form = document.getElementById('modal-form');
+  modal.style.display = 'none';
+  form.reset();
+});
 
 // Open modal to add new book
 let openModal = document.getElementById('add-book');
