@@ -7,6 +7,9 @@
   <title>Library</title>
   <link href="styles/reset.css" rel="stylesheet">
   <link href="styles/styles.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="scripts/main.js" defer></script>
 </head>
 
@@ -27,11 +30,13 @@
 
     <form id="modal-form" action="#">
       <button type="button" class="close-btn" id="close-modal" aria-label="close content">&times;</button>
-      <h2>New Book</h2>
+      <h2>Add New Book</h2>
 
-      <input type="text" class="book-info" id="title" placeholder="Title">
-      <input type="text" class="book-info" id="author" placeholder="Author">
-      <input type="text" class="book-info" id="pages" placeholder="Pages">
+      <input type="text" name="title" id="title" class="book-info" placeholder="Title" required>
+
+      <input type="text" name="author" id="author" class="book-info" placeholder="Author" required>
+
+      <input type="number" class="book-info" id="pages" placeholder="Book Length">
 
       <label for="read">Have you read it?</label>
       <input type="checkbox" id="read">

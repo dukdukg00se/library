@@ -7,19 +7,9 @@ html {
 }
 
 body {
-  background-image: linear-gradient(rgba(0, 0, 0, 1), 
-  rgba(0, 0, 0, 0)), 
-  url(../images/books-morales-unsplash.jpg); /* gradient top to bottom */
-  background-color: black; /* if bkgrnd img doesn't load set bkgrnd color black */
-  min-height: 100%; /* body height grows to fit contents, can overflow root height */
-  color: white;
+  font-family: 'Hahmlet', serif;
+
 }
-
-
-
-
-
-
 
 main {
 
@@ -59,7 +49,7 @@ main {
 }
 
 #modal-form {
-  background-color: #fefefe;
+  background-color: #4d4d4d;
   margin: 20% auto; 
   padding: 20px;
   border: 1px solid #888;
@@ -68,6 +58,7 @@ main {
 
 .book-info {
   display: block;
+  width: 100%;
 }
 
 .close-btn {
