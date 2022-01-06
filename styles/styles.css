@@ -17,7 +17,7 @@ main {
 }
 
 #library {
-  background-color: black;
+  
   display: flex;
   border: solid 2px purple;
   gap: 20px;
@@ -49,7 +49,7 @@ main {
 }
 
 #modal-form {
-  background-color: #4d4d4d;
+  background-color: #f0ba87;
   margin: 20% auto; 
   padding: 20px;
   border: 1px solid #888;

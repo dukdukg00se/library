@@ -86,7 +86,7 @@ function changeReadStatus() {
   readBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
       // console.log(e.target.textContent);
-      console.log(btn.id);
+      // console.log(btn.id);
       // Changes textContent but reverts back when adding a new card
       // need to update read status in myLibrary array
       // if (e.target.textContent === 'Not Read') {
@@ -116,12 +116,10 @@ function changeReadStatus() {
 
 let submit = document.getElementById("submit-btn");
 submit.addEventListener('click', () => {
-  // After clicking submit button:
   store(); 
   displayBooks(); 
   close(); 
   changeReadStatus(); 
-
   // Reset form and remove 
   let form = document.getElementById('modal-form');
   form.reset();
@@ -133,6 +131,7 @@ function close() {
   let closeBtns = document.querySelectorAll('.close-btn');
   closeBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
+      // Remove from DOM
       if (e.target.id === 'close-modal') {
         let form = document.getElementById('modal-form');
         form.reset();
@@ -142,7 +141,7 @@ function close() {
         let parent = child.parentNode;
         let grandParent = parent.parentNode;
         grandParent.removeChild(parent);
-
+        // Remove from myLibrary array
         for (let i = 0; i < myLibrary.length; i++) {
           if (myLibrary[i].title === child.getAttribute('data-value')) {
             delete myLibrary[i];
