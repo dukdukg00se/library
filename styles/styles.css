@@ -7,19 +7,61 @@ html {
 }
 
 body {
+  color: #8b4300;
+  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.1)), url(../images/books-morales-unsplash.jpg);
   font-family: 'Hahmlet', serif;
+  min-width: 450px;
 
+}
+
+header {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+  margin: 10px;
+  padding: 10px;
 }
 
 main {
+  margin: 5% 7%;
+  padding: 2%;
+  height: 100%; /* Grow/shrink to fit cards */
+  min-height: 355px;
+  background: linear-gradient(
+    #bf8842,
+    #8b4300
+ );
+ border-radius: 5px;
+ display: flex;
+ flex-direction: column;
+ gap: 30px;
 
-  border: solid 2px red;
+
 }
+
+#add-book {
+  color: #8b4300;
+  background-color: #fff1dc;
+  border-radius: 10px;
+  width: 127px;
+  height: 43px;
+  border: solid 2px #603002;
+  margin: 0 auto;
+  font-size: 15px;
+  font-weight: 600;
+}
+#add-book:hover {
+  border: solid 3px #603002;
+}
+#add-book:active {
+  background-color: #bdb09e;
+}
+
 
 #library {
   
   display: flex;
-  border: solid 2px purple;
+
   gap: 20px;
   min-height: 200px;
 }
@@ -27,12 +69,19 @@ main {
 .library-subcontainer {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
+  padding: 30px;
+  height: 100%;
 }
 
 .book {
+  background-color: #8b3909;
+  border-radius: 3%;
+  color: black;
+
   height: 25vmin;
   width: 15vmax;
-  border: solid 2px blue;
+  border: solid 2px rgb(0, 0, 0);
 }
 
 #modal {
@@ -68,7 +117,7 @@ main {
 .close-btn {
   background: none;
   border: none;
-  color: #aaa;
+  color: black;
   font-size: 28px;
   font-weight: bold;
   float: right;
