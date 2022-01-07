@@ -129,9 +129,9 @@ function close() {
         modal.style.display = 'none';
 
 
-        let test2 = document.querySelector('.error-msg');
-        if (test2 !== null) {
-          form.removeChild(test2);
+        let errMsg= document.querySelector('.error-msg');
+        if (errMsg !== null) {
+          form.removeChild(errMsg);
         }
 
 
@@ -158,37 +158,34 @@ close();
 let submit = document.getElementById("submit-btn");
 submit.addEventListener('click', () => {
   let title = document.getElementById('title');
-  // console.log(title);
-  // console.log(!title.value);
-  // console.log('test');
 
 
 
-  let test = document.getElementById('modal-form');
-  let test2 = document.querySelector('.error-msg');
-  let test3 = document.getElementById('title');
+  let form = document.getElementById('modal-form');
+  let errMsg = document.querySelector('.error-msg');
+  
 
   if (!title.value) {
-    if (test2 === null) {
-      let test2 = document.createElement('p');
-      test2.classList.add('error-msg')
-      test2.textContent = 'Please add book title';
-      test.insertBefore(test2, test3);
+    if (errMsg === null) {
+      let errMsg = document.createElement('p');
+      errMsg.classList.add('error-msg')
+      errMsg.textContent = 'Please add book title';
+      form.insertBefore(errMsg, title);
     } else {
-      test2.textContent = 'Please add book title';
+      errMsg.textContent = 'Please add book title';
     }
   } else if (!myLibrary.every((book) => book.title !== title.value)) {
-    if (test2 === null) {
-      let test2 = document.createElement('p');
-      test2.classList.add('error-msg')
-      test2.textContent = 'Book already exists in library';
-      test.insertBefore(test2, test3);
+    if (errMsg === null) {
+      let errMsg = document.createElement('p');
+      errMsg.classList.add('error-msg')
+      errMsg.textContent = 'Book already exists in library';
+      form.insertBefore(errMsg, title);
     } else {
-      test2.textContent = 'Book already exists in library';
+      errMsg.textContent = 'Book already exists in library';
     } 
   } else {
-    if (test2 !== null) {
-      test.removeChild(test2);
+    if (errMsg !== null) {
+      form.removeChild(errMsg);
     }
     
     
@@ -202,7 +199,7 @@ submit.addEventListener('click', () => {
     
   
   
-    let form = document.getElementById('modal-form');
+    
     modal.style.display = 'none';
     form.reset();
   }
