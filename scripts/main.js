@@ -145,22 +145,55 @@ close();
 let submit = document.getElementById("submit-btn");
 submit.addEventListener('click', () => {
   let title = document.getElementById('title');
-  console.log(title);
-  console.log(!title.value);
+  // console.log(title);
+  // console.log(!title.value);
+  // console.log('test');
 
-  console.log('test');
-  store(); 
-  displayBooks(); 
-  changeReadStatus(); 
-  close(); 
 
-  // Reset form and remove 
+
+  let test = document.getElementById('modal-form');
+  let test2 = document.querySelector('.error-msg');
+  let test3 = document.getElementById('title');
+
+  if (!title.value) {
+    if (test2 === null) {
+
+      let test2 = document.createElement('p');
+      test2.classList.add('error-msg')
+      test2.textContent = 'Please add book title';
+      test.insertBefore(test2, test3);
+      
+    }
+  } else if (!myLibrary.every((book) => book.title !== title.value)) {
+    if (test2 === null) {
+      let test2 = document.createElement('p');
+      test2.classList.add('error-msg')
+      test2.textContent = 'Book already exists in library';
+      test.insertBefore(test2, test3);
+    } else if (test2.textContent !== 'Book already exists in library') {
+      test2.textContent = 'Book already exists in library';
+    } else {
+      return;
+    }
+  } else {
+    if (test2 !== null) {
+    test.removeChild(test2);
+    }
+    store(); 
+    displayBooks(); 
+    changeReadStatus(); 
+    close(); 
   
+    // Reset form and remove 
+    
+  
+  
+    let form = document.getElementById('modal-form');
+    modal.style.display = 'none';
+    form.reset();
+  }
 
 
-  let form = document.getElementById('modal-form');
-  modal.style.display = 'none';
-  form.reset();
 });
 
 // Open modal to add new book

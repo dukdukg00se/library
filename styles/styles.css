@@ -56,6 +56,10 @@ main {
   width: 350px; /* Could be more or less, depending on screen size */
 }
 
+.error-msg {
+  color: red;
+}
+
 .book-info {
   display: block;
   width: 100%;
