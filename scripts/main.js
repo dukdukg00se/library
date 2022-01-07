@@ -120,9 +120,22 @@ function close() {
     btn.addEventListener('click', (e) => {
       // Remove from DOM
       if (e.target.id === 'close-modal') {
+
+       
+
+
         let form = document.getElementById('modal-form');
         form.reset();
         modal.style.display = 'none';
+
+
+        let test2 = document.querySelector('.error-msg');
+        if (test2 !== null) {
+          form.removeChild(test2);
+        }
+
+
+
       } else {
         let child = document.getElementById(e.target.id);
         let parent = child.parentNode;
