@@ -157,12 +157,12 @@ submit.addEventListener('click', () => {
 
   if (!title.value) {
     if (test2 === null) {
-
       let test2 = document.createElement('p');
       test2.classList.add('error-msg')
       test2.textContent = 'Please add book title';
       test.insertBefore(test2, test3);
-      
+    } else {
+      test2.textContent = 'Please add book title';
     }
   } else if (!myLibrary.every((book) => book.title !== title.value)) {
     if (test2 === null) {
@@ -170,15 +170,16 @@ submit.addEventListener('click', () => {
       test2.classList.add('error-msg')
       test2.textContent = 'Book already exists in library';
       test.insertBefore(test2, test3);
-    } else if (test2.textContent !== 'Book already exists in library') {
-      test2.textContent = 'Book already exists in library';
     } else {
-      return;
-    }
+      test2.textContent = 'Book already exists in library';
+    } 
   } else {
     if (test2 !== null) {
-    test.removeChild(test2);
+      test.removeChild(test2);
     }
+    
+    
+
     store(); 
     displayBooks(); 
     changeReadStatus(); 
