@@ -27,27 +27,25 @@
   <footer>By dukdukg00se</footer>
 
   <div id="modal">
-
     <form id="modal-form" action="#">
       <button type="button" class="close-btn" id="close-modal" aria-label="close content">&times;</button>
-      <h2>Add New Book</h2>
+      <h2>Add new book</h2>
 
       <!-- Removed required attribute here because field is hidden, throwing a "not focusable" error
       Check for input through JS -->
-      <input type="text" name="title" id="title" class="book-info" placeholder="Title">
+      <input type="text" name="title" id="title" class="book-info" placeholder="Title (required)">
 
       <input type="text" name="author" id="author" class="book-info" placeholder="Author">
 
-      <input type="number" class="book-info" id="pages" placeholder="Book Length">
+      <input type="number" class="book-info" id="pages" placeholder="Book length">
 
-      <label for="read">Have you read it?</label>
+      <label id="read-label" for="read">Have you read it?</label>
       <input type="checkbox" id="read">
 
       <!-- Button type="submit" throws "not found" error
       Change button type from "submit" to "button"; as not submitting form data to a server -->
       <button type="button" id="submit-btn">Submit</button>
     </form>
-
   </div>
   
   

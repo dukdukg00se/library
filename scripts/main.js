@@ -44,7 +44,7 @@ function displayBooks() {
     closeBtn.setAttribute('data-value', myLibrary[i].title);
     closeBtn.textContent = '\xD7'; // Display special x symbol using hex code
     // Create book title header
-    let bookTitle = document.createElement('h2');
+    let bookTitle = document.createElement('h3');
     bookTitle.classList.add('book-title');
     bookTitle.textContent = myLibrary[i].title;
     // Create p element with author info
