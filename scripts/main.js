@@ -169,7 +169,7 @@ submit.addEventListener('click', () => {
     if (errMsg === null) {
       let errMsg = document.createElement('p');
       errMsg.classList.add('error-msg')
-      errMsg.textContent = 'Please add book title';
+      errMsg.textContent = 'Please add a book title';
       form.insertBefore(errMsg, title);
     } else {
       errMsg.textContent = 'Please add book title';

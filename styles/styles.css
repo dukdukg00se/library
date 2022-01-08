@@ -143,3 +143,15 @@ input[id="read"] {
   display: block;
   margin-top: 10px;
 }
+
+
+footer {
+  color: #fff1dc;
+  width: 100%;
+  text-align: right;
+  padding: 15px;
+  font-size: 20px;
+  font-weight: 800;
+  position: fixed;
+  bottom: 0;
+}
