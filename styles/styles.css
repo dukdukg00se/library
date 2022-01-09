@@ -59,10 +59,7 @@ main {
 
 
 #library {
-  
   display: flex;
-
-  gap: 20px;
   min-height: 200px;
 }
 
@@ -71,18 +68,52 @@ main {
   gap: 20px;
   flex-wrap: wrap;
   padding: 30px;
-  height: 100%;
+  width: 100%;
 }
 
 .book {
   background-color: #8b3909;
   border-radius: 3%;
   color: black;
-
-  height: 25vmin;
-  width: 15vmax;
+  width: 31%;
+  min-width: 76px;
+  min-height: 170px;
   border: solid 2px rgb(0, 0, 0);
+  display: flex;
+  justify-content: space-between;
+  
 }
+
+#info-container {
+  margin: 10px 0 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 4px 0px 4px 4px;
+  width: 90%;
+
+
+}
+.book-title, 
+.book-author,
+.book-pages {
+  word-break: normal;
+}
+.book-title {
+  font-size: 17px;
+  font-weight: 600;
+}
+.read-btn {
+  width: 70%;
+  border-radius: 5px;
+  height: 27px;
+  border: solid 2px black;
+  background-color: #fff1dc;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+}
+
 
 #modal {
   display: none;
@@ -103,10 +134,10 @@ main {
   padding: 20px;
   border: 1px solid #888;
   width: 350px; /* Could be more or less, depending on screen size */
-  
+
 }
 h2 {
-  font-size: 20px;
+  font-size: 16px;
   padding-bottom: 10px;
 }
 .error-msg {
@@ -125,13 +156,23 @@ input[id="read"] {
   vertical-align: middle;
   margin-bottom: 4px;
 }
+
+#close-modal {
+  display: block;
+  float: right;
+}
+
+
 .close-btn {
   background: none;
   border: none;
   color: black;
   font-size: 28px;
   font-weight: bold;
-  float: right;
+  /* float: right; */
+  margin-top: -3px;
+  margin-right: -2px;
+
 }
 .close-btn:hover,
 .close-btn:focus {
@@ -155,3 +196,4 @@ footer {
   position: fixed;
   bottom: 0;
 }
+

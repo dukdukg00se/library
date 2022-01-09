@@ -36,6 +36,13 @@ function displayBooks() {
     let book = document.createElement('div');
     book.id = 'book-' + i;
     book.classList.add('book');
+
+    let closeBtnContainer = document.createElement('div');
+    closeBtnContainer.id = 'close-container';
+    let bookInfoContainer = document.createElement('div');
+    bookInfoContainer.id = 'info-container';
+
+
     // Create close button
     let closeBtn = document.createElement('button');
     closeBtn.classList.add('close-btn');
@@ -43,6 +50,12 @@ function displayBooks() {
     closeBtn.id = 'close-btn-' + i; // id used in close function
     closeBtn.setAttribute('data-value', myLibrary[i].title);
     closeBtn.textContent = '\xD7'; // Display special x symbol using hex code
+
+    closeBtnContainer.append(closeBtn);
+
+
+
+
     // Create book title header
     let bookTitle = document.createElement('h3');
     bookTitle.classList.add('book-title');
@@ -66,8 +79,12 @@ function displayBooks() {
     } else {
       readBtn.textContent = "Not Read";
     }    
+
+    bookInfoContainer.append(bookTitle, bookAuthor, bookPages, readBtn); 
+
+
     // Add elements to book card
-    book.append(closeBtn, bookTitle, bookAuthor, bookPages, readBtn);
+    book.append(bookInfoContainer, closeBtnContainer);
     // Append book card to subcontainer
     librarySubcontainer.appendChild(book);
   }
@@ -138,9 +155,17 @@ function close() {
 
       } else {
         let child = document.getElementById(e.target.id);
-        let parent = child.parentNode;
-        let grandParent = parent.parentNode;
-        grandParent.removeChild(parent);
+        // let parent = child.parentNode;
+        // let grandParent = parent.parentNode;
+
+        let book = child.parentNode.parentNode;
+        let librarySubcontainer = book.parentNode;
+        librarySubcontainer.removeChild(book);
+
+        // console.log(child.parentNode.parentNode);
+        // console.log(grandParent, grandParent.parentNode);
+
+        // grandParent.removeChild(parent);
         // Remove from myLibrary array
         for (let i = 0; i < myLibrary.length; i++) {
           if (myLibrary[i].title === child.getAttribute('data-value')) {
