@@ -2,14 +2,24 @@
 let myLibrary = [];
 
 // Constructor to create new book
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  // this.info = function() {
-  //   return `${title} by ${author}, ${pages}, ${read}`;
-  // };
+// function Book(title, author, pages, read) {
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.read = read;
+//   // this.info = function() {
+//   //   return `${title} by ${author}, ${pages}, ${read}`;
+//   // };
+// }
+
+// Change plain constructor to class constructor
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 }
 
 // Create new book from form input and store in myLibrary
@@ -42,7 +52,6 @@ function displayBooks() {
     let bookInfoContainer = document.createElement('div');
     bookInfoContainer.id = 'info-container';
 
-
     // Create close button
     let closeBtn = document.createElement('button');
     closeBtn.classList.add('close-btn');
@@ -52,9 +61,6 @@ function displayBooks() {
     closeBtn.textContent = '\xD7'; // Display special x symbol using hex code
 
     closeBtnContainer.append(closeBtn);
-
-
-
 
     // Create book title header
     let bookTitle = document.createElement('h3');
@@ -137,10 +143,6 @@ function close() {
     btn.addEventListener('click', (e) => {
       // Remove from DOM
       if (e.target.id === 'close-modal') {
-
-       
-
-
         let form = document.getElementById('modal-form');
         form.reset();
         modal.style.display = 'none';
@@ -213,18 +215,12 @@ submit.addEventListener('click', () => {
       form.removeChild(errMsg);
     }
     
-    
-
     store(); 
     displayBooks(); 
     changeReadStatus(); 
     close(); 
   
     // Reset form and remove 
-    
-  
-  
-    
     modal.style.display = 'none';
     form.reset();
   }
